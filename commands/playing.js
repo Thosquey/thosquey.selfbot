@@ -1,7 +1,7 @@
 exports.run = (client, msg, args) => {
   var game = args.join(" ").trim();
   if(!game || game.length < 1) game = null;
-  client.user.setPresence({ game: { name: game, type: 0 } });
+  client.user.setGame(game);
   msg.delete().catch(console.error);
 };
 

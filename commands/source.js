@@ -1,6 +1,6 @@
 exports.run = (client, msg, args) => {
   const replyTo = args[0];
-  msg.channel.messages.fetch({limit: 1, around: replyTo})
+  msg.channel.fetchMessages({limit: 1, around: replyTo})
   .then(messages=> {
     const replyToMsg = messages.first();
     msg.channel.send(`Source Code for MSG ID ${replyTo}: \`\`\`md\n${clean(replyToMsg.content)}\n\`\`\``)

@@ -1,6 +1,6 @@
 exports.run = (client, msg, args) => {
   let messagecount = parseInt(args[0], 10) ? parseInt(args[0], 10) : 1;
-  msg.channel.messages.fetch({limit: 100})
+  msg.channel.fetchMessages({limit: 100})
   .then(messages => {
     let msg_array = messages.array();
     msg_array = msg_array.filter(m => m.author.id === client.user.id);

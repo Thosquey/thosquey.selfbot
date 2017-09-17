@@ -4,7 +4,7 @@ exports.run = async (bot, msg, args) => {
   if (!amount) return msg.edit("Must specify an amount to delete!").then(msg.delete(2000));
   if (!amount && !user) return msg.edit("Must specify a user and amount, or just an amount, of messages to purge!").then(msg.delete(2000));
   await msg.delete();
-  let messages = await msg.channel.messages.fetch({limit: 100});
+  let messages = await msg.channel.fetchMessages({limit: 100});
   if(user) {
     messages = messages.array().filter(m=>m.author.id === user.id);
     bot.log("log", "Purge Amount", msg.author, "Amount: " + amount);

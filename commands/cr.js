@@ -5,7 +5,7 @@ exports.run = (client, msg, args) => {
   if(!msg.guild.members.me.hasPermission("MANAGE_MESSAGES")) {
     return msg.edit(`Oh hey idiot, how about doing this only if you have permissions to do so, eh?`).then(setTimeout(msg.delete.bind(msg), 1000));
   }
-  msg.channel.messages.fetch({limit: parseInt(args[0], 10)}).then(msglog => {
+  msg.channel.fetchMessages({limit: parseInt(args[0], 10)}).then(msglog => {
     msg.edit(`Clearing Reactions from this channel for ${args[0]} messages...`).then(setTimeout(msg.delete.bind(msg), 2000));
     msglog.forEach(message => {
       message.clearReactions();

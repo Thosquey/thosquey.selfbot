@@ -1,5 +1,5 @@
 exports.run = async (client, msg, args) => {
-  if(!args.length) return msg.edit(`Must provide a command to reload. Derp.`).then(setTimeout(msg.delete.bind(msg), 1000));
+  if(!args || args.size < 1) return msg.edit(`Must provide a command to reload. Derp.`).then(setTimeout(msg.delete.bind(msg), 1000));
 
   let command;
   if (client.commands.has(args[0])) {
