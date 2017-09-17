@@ -1,0 +1,9 @@
+{
+  "botToken": "TOKEN",
+  "channels" : {
+    "logs": "ID",
+    "mentions": "ID"
+  },
+  "password": "PASSWORD",
+  "prefix": "PREFIX"
+}
